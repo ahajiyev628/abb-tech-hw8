@@ -1,3 +1,5 @@
+package homework8;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -10,7 +12,9 @@ public class Human {
     private Pet pet;
     private Human mother;
     private Human father;
-    private Map<DayOfWeek,String> schedule = new HashMap<>();
+    private Map<DayOfWeek,String> schedule;
+
+    private Family family;
 
     public Human getMother() {
         return mother;
@@ -26,6 +30,14 @@ public class Human {
 
     public void setFather(Human father) {
         this.father = father;
+    }
+
+    public Family getFamily() {
+        return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
     }
 
     public Pet getPet() {
