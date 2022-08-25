@@ -92,6 +92,17 @@ public abstract class Pet {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "species=" + species +
+                ", nickname='" + nickname + '\'' +
+                ", age=" + age +
+                ", tricklevel=" + tricklevel +
+                ", habits=" + habits +
+                '}';
+    }
+
     public String describePet() {
         return "I have a " + species + ", he is " + age + " years old, he is " + tLevel(this.getTricklevel());
     }
