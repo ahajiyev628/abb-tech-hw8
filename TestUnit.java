@@ -18,6 +18,8 @@ public class TestUnit {
 
     Set<String> petHabits = new HashSet<String>();
 
+    Set<String> catHabits = new HashSet<String>();
+
     Family family = new Family();
 
     Dog dog = new Dog(AnimalSpecies.DOG,"wimel", 6, 9, (HashSet<String>) petHabits) {
@@ -37,7 +39,7 @@ public class TestUnit {
         }
     };
 
-    RoboCat cat = new RoboCat(AnimalSpecies.CAT, "asdfghjk", 10, 51, (HashSet<String>) petHabits) {
+    RoboCat cat = new RoboCat(AnimalSpecies.CAT, "asdfghjk", 10, 51, (HashSet<String>) catHabits) {
         @Override
         public String eat() {
             return null;
@@ -90,8 +92,15 @@ public class TestUnit {
         child.setSchedule(Map.of(DayOfWeek.Saturday, Human.tasks[6]));
         child.setFamily(family);
 
-
+        family.setMother(mother);
+        family.setFather(father);
+        family.setPet(p);
+        //family.addChild(child);
         List<Human> childs = family.addChild(child);
+        family.setChildren(childs);
+
+        System.out.println(family.toString());
+
         for(Human ch : childs) System.out.println(ch.toString());
         // family.deleteChild(0);
 
