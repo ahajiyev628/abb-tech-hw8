@@ -1,3 +1,5 @@
+package homework8;
+
 import java.util.*;
 
 public class Main {
@@ -7,72 +9,50 @@ public class Main {
         Human father = new Human();
         Human child = new Human();
 
-        Set<Pet> p = new Set<Pet>() {
-            @Override
-            public int size() {
-                return 0;
-            }
+        Set<Pet> p = new HashSet<Pet>();
 
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
+        Set<String> petHabits = new HashSet<String>();
 
+        Dog dog = new Dog(AnimalSpecies.DOG,"wimel", 6, 9, (HashSet<String>) petHabits) {
             @Override
-            public boolean contains(Object o) {
-                return false;
-            }
-
-            @Override
-            public Iterator<Pet> iterator() {
+            public String eat() {
                 return null;
             }
 
             @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @Override
-            public <T> T[] toArray(T[] ts) {
+            public String respond() {
                 return null;
             }
 
             @Override
-            public boolean add(Pet pet) {
-                return false;
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(Collection<?> collection) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(Collection<? extends Pet> collection) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(Collection<?> collection) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(Collection<?> collection) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
+            public String foul() {
+                return null;
             }
         };
+        dog.getHabits().add("run");
+        dog.getHabits().add("eat");
+        p.add(dog);
+
+        RoboCat cat = new RoboCat(AnimalSpecies.CAT, "asdfghjk", 10, 51, (HashSet<String>) petHabits) {
+            @Override
+            public String eat() {
+                return null;
+            }
+
+            @Override
+            public String respond() {
+                return null;
+            }
+
+            @Override
+            public String foul() {
+                return null;
+            }
+        };
+        cat.getHabits().add("drink");
+        cat.getHabits().add("move");
+        p.add(cat);
+
 
         Family family = new Family();
         //ArrayList<Human> family = new ArrayList<>();
@@ -101,90 +81,12 @@ public class Main {
         child.setFather(new Human(father.getName(), father.getSurname()));
         child.setMother(new Human(mother.getName(), mother.getSurname()));
         child.setSchedule(Map.of(DayOfWeek.Saturday, Human.tasks[6]));
+        child.setFamily(family);
 
-        ArrayList<Human> childs = family.addChild(child);
+
+        List<Human> childs = family.addChild(child);
         for(Human ch : childs) System.out.println(ch.toString());
-
         // family.deleteChild(0);
-
-
-        Dog dg = new Dog(AnimalSpecies.DOG, "wimel", 10, 51, new Set<String>() {
-            @Override
-            public int size() {
-                return 0;
-            }
-
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                return false;
-            }
-
-            @Override
-            public Iterator<String> iterator() {
-                return null;
-            }
-
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @Override
-            public <T> T[] toArray(T[] ts) {
-                return null;
-            }
-
-            @Override
-            public boolean add(String s) {
-                return false;
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(Collection<?> collection) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(Collection<? extends String> collection) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(Collection<?> collection) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(Collection<?> collection) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
-            }
-
-            @Override
-            public boolean equals(Object o) {
-                return false;
-            }
-
-            @Override
-            public int hashCode() {
-                return 0;
-            }
-        });
-        System.out.println(dg.describePet());
 
         System.out.print("Count of members in the family: " + family.countFamily());
 
