@@ -1,11 +1,23 @@
+package homework8;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class Family {
     private Human father = new Human();
     private Human mother = new Human();
-    ArrayList<Human> children = new ArrayList<>();
-    ArrayList<Family> fam = new ArrayList<>();
+    List<Human> children = new ArrayList<>();
+
+    Set<Pet> pet;
+
+    public Family(Human father, Human mother, List<Human> children, Set<Pet> pet) {
+        this.father = father;
+        this.mother = mother;
+        this.children = children;
+        this.pet = pet;
+    }
 
     public Family(Human father, Human mother, ArrayList<Human> children) {
         this.father = father;
@@ -33,16 +45,16 @@ public class Family {
         this.mother = mother;
     }
 
-    public ArrayList<Human> getChildren() {
+    public List<Human> getChildren() {
         return children;
     }
 
-    public void setChildren(ArrayList<Human> children) {
+    public void setChildren(List<Human> children) {
         this.children = children;
     }
 
-    public ArrayList<Human> addChild(Human child) {
-        ArrayList<Human> newChildren = new ArrayList<>();
+    public List<Human> addChild(Human child) {
+        List<Human> newChildren = new ArrayList<>();
         int i = 0;
         newChildren.add(i, child);
         i++;
@@ -58,7 +70,7 @@ public class Family {
         return newChildren.get(newChildren.size()-1);
     }
     */
-    public ArrayList<Human> deleteChild(Human child) {
+    public List<Human> deleteChild(Human child) {
         int i = 0;
         ArrayList<Human> newChildren = new ArrayList<>();
         for (Human ch : children) {
@@ -72,7 +84,7 @@ public class Family {
         return children;
     }
 
-    public ArrayList<Human> deleteChild(int position) {
+    public List<Human> deleteChild(int position) {
         int j = 0;
         if (position >= 0) {
             ArrayList<Human> newChildren = new ArrayList<>();
