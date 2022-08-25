@@ -10,7 +10,7 @@ public class Family {
     private Human mother = new Human();
     List<Human> children = new ArrayList<>();
 
-    Set<Pet> pet;
+    private Set<Pet> pet;
 
     public Family(Human father, Human mother, List<Human> children, Set<Pet> pet) {
         this.father = father;
@@ -51,6 +51,14 @@ public class Family {
 
     public void setChildren(List<Human> children) {
         this.children = children;
+    }
+
+    public Set<Pet> getPet() {
+        return pet;
+    }
+
+    public void setPet(Set<Pet> pet) {
+        this.pet = pet;
     }
 
     public List<Human> addChild(Human child) {
@@ -116,14 +124,18 @@ public class Family {
     public int hashCode() {
         return Objects.hash(father, mother, children);
     }
+
+
     @Override
     public String toString() {
         return "Family{" +
                 "father=" + father +
                 ", mother=" + mother +
                 ", children=" + children +
+                ", pet=" + pet +
                 '}';
     }
+
     @Override
     protected void finalize() throws Throwable {
         System.out.println("finalize() method in Family class was called");
